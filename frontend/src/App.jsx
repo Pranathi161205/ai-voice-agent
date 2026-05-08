@@ -84,6 +84,13 @@ const fetchHistory = async (savedToken) => {
     });
 
     const data = await res.json();
+    if (res.status === 401) {
+  localStorage.removeItem("token");
+  setToken("");
+  setShowAuth(true);
+  alert("Session expired. Please login again.");
+  return;
+}
 
     if (data.history) {
       setChatHistory(data.history);
@@ -107,7 +114,13 @@ const fetchHistory = async (savedToken) => {
       });
 
       const data = await res.json();
-
+if (res.status === 401) {
+  localStorage.removeItem("token");
+  setToken("");
+  setShowAuth(true);
+  alert("Session expired. Please login again.");
+  return;
+}
       if (!res.ok) {
         alert(data.detail || "Something went wrong");
         return;
@@ -165,7 +178,13 @@ const fetchHistory = async (savedToken) => {
       });
 
       const data = await res.json();
-
+if (res.status === 401) {
+  localStorage.removeItem("token");
+  setToken("");
+  setShowAuth(true);
+  alert("Session expired. Please login again.");
+  return;
+}
       if (data.reply) {
         setChatHistory((prev) => [
           ...prev,

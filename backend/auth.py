@@ -21,7 +21,7 @@ def verify_password(password: str, hashed_password: str):
 def create_token(email: str):
     payload = {
         "sub": email,
-        "exp": datetime.utcnow() + timedelta(days=1)
+        "exp": datetime.utcnow() + timedelta(days=30)
     }
     return jwt.encode(payload, JWT_SECRET, algorithm=ALGORITHM)
 
