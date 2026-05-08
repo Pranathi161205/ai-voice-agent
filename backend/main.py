@@ -9,7 +9,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://vaaniaivoiceagent.netlify.app/"],
+    allow_origins=["https://vaaniaivoiceagents.netlify.app/"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
