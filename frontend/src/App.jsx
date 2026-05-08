@@ -2,6 +2,8 @@ import "./App.css";
 import { Mic, ArrowRight, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
+const API_URL = "https://vaaniai-backend-syu0.onrender.com";
+
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [showAuth, setShowAuth] = useState(false);
