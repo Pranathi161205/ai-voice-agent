@@ -73,7 +73,7 @@ const fetchHistory = async (savedToken) => {
   if (!savedToken) return;
 
   try {
-    const res = await fetch("https://vaaniai-backend-syu0.onrender.com/history", {
+    const res = await fetch("${API_URL}/history", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -94,8 +94,8 @@ const fetchHistory = async (savedToken) => {
 };
   const handleAuth = async () => {
     const url = isLogin
-      ? "https://vaaniai-backend-syu0.onrender.com/login"
-      : "https://vaaniai-backend-syu0.onrender.com/register";
+      ? "${API_URL}'/login"
+      : "${API_URL}/register";
 
     const body = isLogin ? { email, password } : { name, email, password };
 
@@ -152,7 +152,7 @@ const fetchHistory = async (savedToken) => {
       setLoading(true);
       setUserText(message);
 
-      const res = await fetch("https://vaaniai-backend-syu0.onrender.com/chat", {
+      const res = await fetch("${API_URL}/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
