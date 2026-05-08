@@ -5,7 +5,6 @@ from auth import hash_password, verify_password, create_token, decode_token
 from chatbot import get_ai_response
 from datetime import datetime
 from database import users_collection, chats_collection, memories_collection
-const API_URL = "https://vaaniai-backend-syu0.onrender.com";
 app = FastAPI()
 
 app.add_middleware(
