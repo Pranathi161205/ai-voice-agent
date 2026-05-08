@@ -73,7 +73,7 @@ const fetchHistory = async (savedToken) => {
   if (!savedToken) return;
 
   try {
-    const res = await fetch("http://127.0.0.1:8000/history", {
+    const res = await fetch("https://vaaniai-backend-syu0.onrender.com/history", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -94,8 +94,8 @@ const fetchHistory = async (savedToken) => {
 };
   const handleAuth = async () => {
     const url = isLogin
-      ? "http://127.0.0.1:8000/login"
-      : "http://127.0.0.1:8000/register";
+      ? "https://vaaniai-backend-syu0.onrender.com/login"
+      : "https://vaaniai-backend-syu0.onrender.com/register";
 
     const body = isLogin ? { email, password } : { name, email, password };
 
@@ -152,7 +152,7 @@ const fetchHistory = async (savedToken) => {
       setLoading(true);
       setUserText(message);
 
-      const res = await fetch("http://127.0.0.1:8000/chat", {
+      const res = await fetch("https://vaaniai-backend-syu0.onrender.com/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
