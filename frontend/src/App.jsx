@@ -14,6 +14,7 @@ function App() {
   const [password, setPassword] = useState("");
 
   const [userText, setUserText] = useState("");
+  const [typedMessage, setTypedMessage] = useState("");
   const [chatHistory, setChatHistory] = useState([]);
   const [showSidebar, setShowSidebar] = useState(false);
 
@@ -404,22 +405,45 @@ const stopSpeaking = () => {
               {listening ? "Listening..." : "Speak"}
             </button>
 
-            <button className="secondary-btn" onClick={() => sendToAI("Hello")}>
-              Send Hello <ArrowRight size={18} />
+            <input
+              className="chat-input"
+              type="text"
+              placeholder="Ask anything..."
+              value={typedMessage}
+              onChange={(e) => setTypedMessage(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && typedMessage.trim()) {
+                  sendToAI(typedMessage);
+                  setTypedMessage("");
+                }
+              }}
+            />
+
+            <button
+              className="secondary-btn"
+              onClick={() => {
+                if (typedMessage.trim()) {
+                  sendToAI(typedMessage);
+                  setTypedMessage("");
+                }
+              }}
+            >
+              Send
             </button>
+
             <button className="secondary-btn" onClick={stopSpeaking}>
-  Stop Speaking
-</button>
-<select
-  className="voice-select"
-  value={voiceStyle}
-  onChange={(e) => setVoiceStyle(e.target.value)}
->
-  <option value="female">Female Voice</option>
-  <option value="male">Male Voice</option>
-  <option value="fast">Fast Voice</option>
-  <option value="calm">Calm Voice</option>
-</select>
+              Stop Speaking
+            </button>
+            <select
+              className="voice-select"
+              value={voiceStyle}
+              onChange={(e) => setVoiceStyle(e.target.value)}
+            >
+              <option value="female">Female Voice</option>
+              <option value="male">Male Voice</option>
+              <option value="fast">Fast Voice</option>
+              <option value="calm">Calm Voice</option>
+            </select>
           </div>
         </div>
       </section>
