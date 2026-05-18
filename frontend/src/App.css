@@ -152,6 +152,27 @@ body {
   transform: translateY(-3px);
 }
 
+.chat-input {
+  padding: 16px 22px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
+  outline: none;
+  min-width: 280px;
+  max-width: 360px;
+  transition: 0.3s;
+}
+
+.chat-input::placeholder {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.chat-input:focus {
+  border-color: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(8px);
+}
+
 /* CARD */
 
 .voice-card {
