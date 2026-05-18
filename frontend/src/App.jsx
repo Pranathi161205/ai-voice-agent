@@ -217,6 +217,14 @@ const stopSpeaking = () => {
 
 
   const startListening = () => {
+    const isMobile =
+      /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      alert("Voice input is limited on mobile browsers. Please use text input.");
+      return;
+    }
+
     const SpeechRecognition =
       window.SpeechRecognition || window.webkitSpeechRecognition;
 
