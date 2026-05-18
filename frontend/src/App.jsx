@@ -336,9 +336,22 @@ const stopSpeaking = () => {
             {listening ? "Listening..." : "Start Voice Chat"}
           </button>
 
+          <input
+            className="chat-input"
+            type="text"
+            placeholder="Ask anything..."
+            value={typedMessage}
+            onChange={(e) => setTypedMessage(e.target.value)}
+          />
+
           <button
             className="secondary-btn"
-            onClick={() => sendToAI(userText || "Hello")}
+            onClick={() => {
+              if (typedMessage.trim()) {
+                sendToAI(typedMessage);
+                setTypedMessage("");
+              }
+            }}
           >
             Send Text <ArrowRight size={18} />
           </button>
