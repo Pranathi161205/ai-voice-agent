@@ -33,10 +33,11 @@ body {
 }
 
 .logo {
-  font-size: 32px;
-  font-weight: 700;
+  font-size: 48px;
+  font-weight: 800;
   letter-spacing: 1px;
   font-family: 'Limelight', cursive;
+  text-transform: uppercase;
 }
 
 .nav-links {
