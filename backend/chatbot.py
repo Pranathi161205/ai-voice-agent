@@ -21,15 +21,15 @@ def get_ai_response(user_message, history=[], memories=[]):
         }
     ]
 
-    for item in history:
+    for item in history[-10:]:
         messages.append({"role": "user", "content": item["user"]})
         messages.append({"role": "assistant", "content": item["ai"]})
 
     messages.append({"role": "user", "content": user_message})
 
     response = client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
-        messages=messages,
+        model="llama-3.1-8b-instant",
+        max_tokens=500,
         temperature=0.7,
     )
 
