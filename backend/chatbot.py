@@ -29,6 +29,7 @@ def get_ai_response(user_message, history=[], memories=[]):
 
     response = client.chat.completions.create(
         model="llama-3.1-8b-instant",
+        messages=messages,
         max_tokens=500,
         temperature=0.7,
     )
